@@ -1,9 +1,10 @@
+import Header from "./components/Header";
+import MainMovie from "./components/MainMovie";
 function App() {
 	return (
 		<>
-			<div>
-				<h1>hello</h1>
-			</div>
+			<Header />
+			<MainMovie />
 		</>
 	);
 }
