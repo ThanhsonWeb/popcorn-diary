@@ -1,16 +1,22 @@
+import { useMovies } from "../context/MovieContext";
+
 function SearchMovie() {
-  return (
-    <form className="w-full">
-      <input
-        type="text"
-        className="px-4 py-2 rounded-xl w-full text-xl 
+	const { query, setQuery } = useMovies();
+
+	return (
+		<form className="w-full">
+			<input
+				type="text"
+				value={query}
+				onChange={(e) => setQuery(e.target.value)}
+				className="px-4 py-2 rounded-xl w-full text-xl 
                    bg-gray-800 text-white placeholder-gray-400 
                    focus:outline-none focus:ring-2 focus:ring-blue-500 
                    transition duration-200"
-        placeholder="Search movies..."
-      />
-    </form>
-  );
+				placeholder="Search movies..."
+			/>
+		</form>
+	);
 }
 
 export default SearchMovie;
