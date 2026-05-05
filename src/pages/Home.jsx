@@ -1,7 +1,7 @@
 import background from "../assets/img/bg-hero.jpg";
 import { useMovies } from "../context/MovieContext";
-import MovieList from "./MovieList";
-function MainMovie() {
+import MovieList from "../components/MovieList";
+function Home() {
 	const { query } = useMovies();
 	if (!query) {
 		return (
@@ -19,4 +19,4 @@ function MainMovie() {
 	return <MovieList />;
 }
 
-export default MainMovie;
+export default Home;

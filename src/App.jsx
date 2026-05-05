@@ -1,15 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainMovie from "./components/MainMovie";
+import Home from "./pages/Home";
 import AppLayout from "./components/AppLayout";
-
+import SignIn from "./pages/SignIn";
 function App() {
 	const router = createBrowserRouter([
 		{
 			element: <AppLayout />, // parent layout
 			children: [
 				{
-					path: "/", // default route
-					element: <MainMovie />,
+					path: "/",
+					element: <Home />,
+				},
+				{
+					path: "/signin",
+					element: <SignIn />,
 				},
 			],
 		},
