@@ -4,27 +4,36 @@ const MovieContext = createContext();
 
 function MovieProvider({ children }) {
 	const KEY = "783e376b";
-	const [query, setQuery] = useState("Doraemon");
+	const [query, setQuery] = useState("Pokemon");
 	const [isLoading, setIsLoading] = useState(false);
 	const [movieData, setMovieData] = useState([]);
 
 	useEffect(() => {
+		const controller = new AbortController();
+
 		async function fetchMovies() {
 			try {
 				setIsLoading(true);
 				const res = await fetch(
 					`https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+					{ signal: controller.signal },
 				);
 				const data = await res.json();
-				console.log(data.Search)
-				setMovieData(data.Search);
+				console.log(data.Search);
+				setMovieData(data.Search || []);
 			} catch (err) {
-				console.error("something went wrong while fetch movie", err);
+				if (err.name === "AbortError") {
+					// Request was intentionally cancelled, ignore
+					// console.log("Fetch aborted");
+					return;
+				}
+				console.error("Failed to fetch movies:", err);
 			} finally {
 				setIsLoading(false);
 			}
 		}
 		fetchMovies();
+		return () => controller.abort();
 	}, [query]);
 
 	return (

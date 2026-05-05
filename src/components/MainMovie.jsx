@@ -2,7 +2,7 @@ import background from "../assets/img/bg-hero.jpg";
 import { useMovies } from "../context/MovieContext";
 import MovieList from "./MovieList";
 function MainMovie() {
-	const {  query } = useMovies();
+	const { query } = useMovies();
 	if (!query) {
 		return (
 			<div
@@ -16,11 +16,7 @@ function MainMovie() {
 		);
 	}
 
-	return (
-		<div >
-			<MovieList />
-		</div>
-	);
+	return <MovieList />;
 }
 
 export default MainMovie;
