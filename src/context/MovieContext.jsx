@@ -4,10 +4,16 @@ const MovieContext = createContext();
 
 function MovieProvider({ children }) {
 	const KEY = "783e376b";
-	const [query, setQuery] = useState("");
+	const [query, setQuery] = useState("ninja");
 	const [isLoading, setIsLoading] = useState(false);
 	const [movieData, setMovieData] = useState([]);
 	const [username, setUsername] = useState("");
+	const [selectedId, setSelectedId] = useState(null);
+	const [isOpen, setIsOpen] = useState(true);
+
+	function handleSelected(id) {
+		setSelectedId(movieData.filter((movie) => movie.imdbID === id));
+	}
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -39,7 +45,18 @@ function MovieProvider({ children }) {
 
 	return (
 		<MovieContext.Provider
-			value={{ query, setQuery, isLoading, movieData, username, setUsername }}
+			value={{
+				query,
+				setQuery,
+				isLoading,
+				movieData,
+				username,
+				setUsername,
+				handleSelected,
+				selectedId,
+				isOpen,
+				setIsOpen,
+			}}
 		>
 			{children}
 		</MovieContext.Provider>
