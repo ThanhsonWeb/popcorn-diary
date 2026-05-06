@@ -7,6 +7,7 @@ function MovieProvider({ children }) {
 	const [query, setQuery] = useState("Pokemon");
 	const [isLoading, setIsLoading] = useState(false);
 	const [movieData, setMovieData] = useState([]);
+	const [username, setUsername] = useState("");
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -37,7 +38,9 @@ function MovieProvider({ children }) {
 	}, [query]);
 
 	return (
-		<MovieContext.Provider value={{ query, setQuery, isLoading, movieData }}>
+		<MovieContext.Provider
+			value={{ query, setQuery, isLoading, movieData, username, setUsername }}
+		>
 			{children}
 		</MovieContext.Provider>
 	);

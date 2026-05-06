@@ -5,11 +5,13 @@ import { MovieProvider } from "../context/MovieContext";
 function AppLayout() {
 	return (
 		<MovieProvider>
-			<Header />
-			<main>
-				<Outlet />
-			</main>
-			<Footer />
+			<div className="p-4">
+				<Header />
+				<main>
+					<Outlet />
+				</main>
+				<Footer />
+			</div>
 		</MovieProvider>
 	);
 }

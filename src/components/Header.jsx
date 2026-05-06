@@ -3,9 +3,11 @@ import SearchMovie from "./SearchMovie";
 import Results from "./Results";
 import Button from "../ui/Button";
 import { useNavigate, Link } from "react-router-dom";
+import { useMovies } from "../context/MovieContext";
 
 function Header() {
 	const navigate = useNavigate();
+	const { username, setUsername } = useMovies();
 
 	return (
 		<>
@@ -22,8 +24,16 @@ function Header() {
 				<div className="w-[50%] ">
 					<SearchMovie />
 				</div>
-
-				<Button onClick={() => navigate("/signin")} />
+				{username !== "" ? (
+					<button
+						onClick={() => setUsername("")}
+						className="font-bold shadow-2xl text-xl bg-amber-50 p-4 rounded-2xl"
+					>
+						{username}
+					</button>
+				) : (
+					<Button onClick={() => navigate("/signin")}>Sign In</Button>
+				)}
 			</div>
 			<div>
 				<Results />
