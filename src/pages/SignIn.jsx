@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useMovies } from "../context/MovieContext";
 
 function SignIn() {
-	const navigate = useNavigate("/");
+	const navigate = useNavigate();
 	const { username, setUsername } = useMovies();
 
 	function handleSubmit(e) {
@@ -18,18 +18,18 @@ function SignIn() {
 	return (
 		<div
 			style={{ backgroundImage: `url(${theater})` }}
-			className="fixed inset-0 flex flex-col justify-center items-center mx-auto  md:p-5 p-2 rounded-2xl bg-cover bg-center "
+			className="fixed inset-0 flex flex-col justify-center items-center mx-auto  md:p-5 p-2 rounded-2xl bg-cover bg-center  "
 		>
 			<form
 				onSubmit={handleSubmit}
 				style={{ backgroundImage: `url(${bgHero})` }}
-				className="flex flex-col space-y-3 md:w-[70%] w-full bg-amber-50 p-6 rounded-2xl relative"
+				className="flex flex-col space-y-3 md:w-[70%] w-full bg-amber-50 p-6 rounded-2xl relative "
 			>
 				<button onClick={() => navigate("/")}>
 					<img
 						src={close}
 						alt="close"
-						className="md:h-20 h-15 absolute right-5 top-5"
+						className="md:h-20 h-15 absolute right-5 top-5 hover:scale-110 active:scale-90 cursor-pointer"
 					/>
 				</button>
 				<h2 className="font-semibold md:text-5xl text-3xl text-white text-center p-3">
@@ -57,12 +57,16 @@ function SignIn() {
 					required
 				/>
 				<div className="my-4 flex items-center justify-around">
-               <span className="text-white text-lg"><input type="checkbox" /> Save password</span>
+					<span className="text-white text-lg">
+						<input type="checkbox" /> Save password
+					</span>
 					<Button type="submit">Sign In</Button> <br />
 				</div>
-					<span className="text-white text-lg">
-						Don't have a account ? Sign Up now !
-					</span>
+				<span className="text-white text-lg">
+					Don't have a account ?
+					<span className="underline text-blue-400 font-semibold">Sign Up</span>
+					now !
+				</span>
 			</form>
 		</div>
 	);
