@@ -5,7 +5,7 @@ import { MovieProvider } from "../context/MovieContext";
 function AppLayout() {
 	return (
 		<MovieProvider>
-			<div className="p-4">
+			<div >
 				<Header />
 				<main>
 					<Outlet />

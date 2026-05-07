@@ -27,12 +27,17 @@ function Header() {
 				{username !== "" ? (
 					<button
 						onClick={() => setUsername("")}
-						className="font-bold shadow-2xl text-xl bg-amber-50 p-4 rounded-2xl"
+						className="font-bold shadow-2xl text-xl bg-amber-50 p-4 rounded-2xl "
 					>
 						{username}
 					</button>
 				) : (
-					<Button onClick={() => navigate("/signin")}>Sign In</Button>
+					<button
+						className="md:px-6 py-2 px-2   bg-red-900 text-white md:text-2xl font-semibold rounded-lg shadow-md cursor-pointer"
+						onClick={() => navigate("/signin")}
+					>
+						Sign In
+					</button>
 				)}
 			</header>
 			<div>

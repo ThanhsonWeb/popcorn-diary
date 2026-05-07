@@ -41,7 +41,7 @@ function MovieDetail() {
 				/>
 				{/* infor */}
 				<div className="p-5 md:w-full ">
-					<h2 className="text-xl font-semibold truncate my-2 ">{Title}</h2>
+					<h2 className="text-xl font-semibold md:truncate my-2 ">{Title}</h2>
 					<p className="mb-2">
 						{Released} • {Runtime}
 					</p>

@@ -16,14 +16,18 @@ function MovieItem({ movie }) {
 				<img
 					src={Poster}
 					alt={Title}
-					className="w-full h-[85%] bg-cover bg-center  "
+					className=" w-full  h-90  rounded-xl  "
 				/>
-				<h3 className="font-semibold text-white text-2xl truncate text-center mt-2">
-					{Title}
-				</h3>
-				<div className="flex items-center justify-center text-white gap-4 text-lg mt-2 ">
-					<img src={yearIcon} alt="Icon" className="h-10" />
-					<span> {Year}</span>
+				
+
+				<div className="px-3 py-2 text-center">
+					<h3 className="font-semibold text-white text-2xl  sm:truncate ">
+						{Title}
+					</h3>
+					<div className="inline-flex items-center text-white gap-4 text-lg mt-3  ">
+						<img src={yearIcon} alt="Icon" className="h-10" />
+						<span> {Year}</span>
+					</div>
 				</div>
 			</Link>
 		</li>
