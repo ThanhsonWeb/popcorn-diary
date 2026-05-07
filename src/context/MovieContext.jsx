@@ -10,9 +10,10 @@ function MovieProvider({ children }) {
 	const [username, setUsername] = useState("");
 	const [selectedId, setSelectedId] = useState(null);
 	const [isOpen, setIsOpen] = useState(true);
+	const [movieDetail, setMovieDetail] = useState(null);
 
 	function handleSelected(id) {
-		setSelectedId(movieData.filter((movie) => movie.imdbID === id));
+		setSelectedId(id);
 	}
 
 	useEffect(() => {
@@ -43,6 +44,30 @@ function MovieProvider({ children }) {
 		return () => controller.abort();
 	}, [query]);
 
+	useEffect(() => {
+		if (!selectedId) return;
+
+		async function fetchMovieDetail() {
+			try {
+				setIsLoading(true);
+				const res = await fetch(
+					`https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`,
+				);
+				const dataMovie = await res.json();
+				console.log(dataMovie);
+				setMovieDetail(dataMovie);
+			} catch (err) {
+				console.error("Failed to fetch movie detail:", err);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+
+		if (selectedId) {
+			fetchMovieDetail();
+		}
+	}, [selectedId]);
+
 	return (
 		<MovieContext.Provider
 			value={{
@@ -56,6 +81,7 @@ function MovieProvider({ children }) {
 				selectedId,
 				isOpen,
 				setIsOpen,
+				movieDetail,
 			}}
 		>
 			{children}

@@ -11,7 +11,7 @@ function Header() {
 
 	return (
 		<>
-			<div className="flex  items-center justify-between  p-6 bg-purple-900">
+			<header className="flex  items-center justify-between  p-6 bg-purple-900">
 				<Link to="/">
 					<div className="flex items-center gap-3 ">
 						<img src={logo} alt="logo" className="h-20 w-20 rounded-full" />
@@ -34,7 +34,7 @@ function Header() {
 				) : (
 					<Button onClick={() => navigate("/signin")}>Sign In</Button>
 				)}
-			</div>
+			</header>
 			<div>
 				<Results />
 			</div>

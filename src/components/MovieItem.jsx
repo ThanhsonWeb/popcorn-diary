@@ -8,9 +8,11 @@ function MovieItem({ movie }) {
 	const { handleSelected } = useMovies();
 
 	return (
-		
-			<li className="rounded-2xl bg-gray-900 cursor-pointer mt-5 ">
-				<Link to="/detail" onClick={() => handleSelected(movie.imdbID)}>
+		<li className="rounded-2xl bg-gray-900 cursor-pointer mt-5 ">
+			<Link
+				to={`/detail/${imdbID}`}
+				onClick={() => handleSelected(movie.imdbID)}
+			>
 				<img
 					src={Poster}
 					alt={Title}
@@ -23,8 +25,8 @@ function MovieItem({ movie }) {
 					<img src={yearIcon} alt="Icon" className="h-10" />
 					<span> {Year}</span>
 				</div>
-				</Link>
-			</li>
+			</Link>
+		</li>
 	);
 }
 

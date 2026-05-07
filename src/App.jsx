@@ -17,7 +17,7 @@ function App() {
 					element: <SignIn />,
 				},
 				{
-					path: "/detail",
+					path: "/detail/:id",
 					element: <MovieDetail />,
 				},
 			
