@@ -1,8 +1,11 @@
 import { useMovies } from "../context/MovieContext";
 import Loading from "../ui/Loading";
 import imdb from "../assets/icon/imdb2.svg";
+import arrowleft from "../assets/icon/arrow-left.svg";
+import { useNavigate } from "react-router-dom";
 
 function MovieDetail() {
+	const navigate = useNavigate();
 	const { movieDetail } = useMovies();
 
 	console.log(movieDetail);
@@ -25,6 +28,12 @@ function MovieDetail() {
 		<div className="md:flex  gap-5 text-white ">
 			{/* left */}
 			<div className="flex  flex-row md:flex-col md:w-[400px]  w-full bg-gray-800">
+				<button
+					onClick={() => navigate(-1)}
+					className="absolute p-3 rounded-full bg-amber-50 active:scale-90 cursor-pointer hover:scale-105  transition duration-200"
+				>
+					<img src={arrowleft} alt="arrowleft" className="h-10" />
+				</button>
 				<img
 					src={Poster}
 					alt={Title}
