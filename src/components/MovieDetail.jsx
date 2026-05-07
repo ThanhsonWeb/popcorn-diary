@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function MovieDetail() {
 	const navigate = useNavigate();
-	const { movieDetail } = useMovies();
+	const { movieDetail, setMovieDetail, handleSelected } = useMovies();
 
 	console.log(movieDetail);
 
@@ -24,12 +24,17 @@ function MovieDetail() {
 		Actors,
 	} = movieDetail;
 
+	function handleClick() {
+		setMovieDetail(null);
+		handleSelected(null);
+		navigate(-1);
+	}
 	return (
 		<div className="md:flex  gap-5 text-white ">
 			{/* left */}
-			<div className="flex  flex-row md:flex-col md:w-[400px]  w-full bg-gray-800">
+			<div className="flex  flex-row md:flex-col   w-full bg-gray-800">
 				<button
-					onClick={() => navigate(-1)}
+					onClick={handleClick}
 					className="absolute p-3 rounded-full bg-amber-50 active:scale-90 cursor-pointer hover:scale-105  transition duration-200"
 				>
 					<img src={arrowleft} alt="arrowleft" className="h-10" />
@@ -37,7 +42,7 @@ function MovieDetail() {
 				<img
 					src={Poster}
 					alt={Title}
-					className=" md:w-full w-[200px]  object-cover"
+					className=" md:w-full sm:w-[220px]  w-[170px] object-cover"
 				/>
 				{/* infor */}
 				<div className="p-5 md:w-full ">

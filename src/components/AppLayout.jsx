@@ -5,9 +5,9 @@ import { MovieProvider } from "../context/MovieContext";
 function AppLayout() {
 	return (
 		<MovieProvider>
-			<div >
+			<div className="p-5">
 				<Header />
-				<main>
+				<main className="container mx-auto" >
 					<Outlet />
 				</main>
 				<Footer />

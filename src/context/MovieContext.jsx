@@ -82,6 +82,7 @@ function MovieProvider({ children }) {
 				isOpen,
 				setIsOpen,
 				movieDetail,
+				setMovieDetail,
 			}}
 		>
 			{children}
