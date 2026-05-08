@@ -1,17 +1,39 @@
 import imdb from "../assets/icon/imdb2.svg";
+import starFull from "../assets/icon/star-full.svg";
+import clock from "../assets/icon/clock.svg";
+import close from "../assets/icon/close.svg";
 function WatchedMovie({ movie }) {
-	const { poster, title, imdbRating, runtime, id } = movie;
+	const { poster, title, imdbRating, runtime } = movie;
 
 	return (
-		<li>
-			<div className="flex items-center gap-5">
-				<img src={poster} alt={title} className="h-35  object-cover" />
-				<div>
-					<h3>{movie.title}</h3>
-					<div>
-						<img src={imdb} alt=""  className="h-10"/>
+		<li className="bg-gray-800 md:p-5 p-2">
+			<div className="flex items-center  md:gap-5 gap-2">
+				<img src={poster} alt={title} className="h-25  object-cover" />
+				<div className="space-y-3 w-[90%]">
+					<h3 className="md:text-2xl text-lg font-semibold">{movie.title}</h3>
+					{/* infor */}
+					<div className="flex items-center md:gap-7 gap-2">
+						{/* 1 */}
+						<div className="flex items-center md:gap-3 gap-1">
+							<img src={imdb} alt="Icon" className="md:h-12 h-6" />
+							<span>{imdbRating}</span>
+						</div>
+						{/* 2 */}
+						<div className="flex items-center md:gap-3 gap-1">
+              <span className="text-2xl">⭐</span>
+							<span>{imdbRating}</span>
+						</div>
+						{/* 3 */}
+						<div className="flex items-center md:gap-3 gap-1">
+							<img src={clock} alt="clockIcon" className="md:h-8 h-5" />
+							<span>{runtime}</span>
+						</div>
 					</div>
+					{/* button */}
 				</div>
+				<button className="p-3 rounded-full bg-red-400 cursor-pointer ml-auto">
+					<img src={close} alt="closeIcon" className="md:h-8 h-5  rounded-full" />
+				</button>
 			</div>
 		</li>
 	);

@@ -7,7 +7,7 @@ function AppLayout() {
 	return (
 		<RatingProvider>
 			<MovieProvider>
-				<div className="p-5">
+				<div className="xl:p-6 p-0">
 					<Header />
 					<main className="container mx-auto">
 						<Outlet />

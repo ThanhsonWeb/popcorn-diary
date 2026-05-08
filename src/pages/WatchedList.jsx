@@ -8,8 +8,8 @@ function WatchedList() {
 		<div className="text-white p-4">
 			<h2>Watched summary</h2>
 
-			<h1>Watched Movie</h1>
-			<ul>
+	
+			<ul className="overflow-scroll" >
 				{watched?.map((movie) => (
 					<WatchedMovie movie={movie} key={movie.id} />
 				))}
