@@ -2,7 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import AppLayout from "./components/AppLayout";
 import SignIn from "./pages/SignIn";
-import MovieDetail from "./components/MovieDetail";
+import MovieDetail from "./pages/MovieDetail";
+import WatchedList from "./pages/WatchedList";
+
 function App() {
 	const router = createBrowserRouter([
 		{
@@ -20,7 +22,10 @@ function App() {
 					path: "/detail/:id",
 					element: <MovieDetail />,
 				},
-			
+				{
+					path: "/watched",
+					element: <WatchedList />,
+				},
 			],
 		},
 	]);

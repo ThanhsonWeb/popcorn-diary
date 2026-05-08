@@ -4,12 +4,13 @@ import imdb from "../assets/icon/imdb2.svg";
 import arrowleft from "../assets/icon/arrow-left.svg";
 import check from "../assets/icon/circle-full.svg";
 import { useNavigate } from "react-router-dom";
-import StarRating from "./StarRating";
+import StarRating from "../components/StarRating";
 import { useRating } from "../context/RatingContext";
 
 function MovieDetail() {
 	const navigate = useNavigate();
-	const { movieDetail, setMovieDetail, handleSelected } = useMovies();
+	const { movieDetail, setMovieDetail, handleSelected, onAddWatch } =
+		useMovies();
 	const { rating } = useRating();
 
 	console.log(movieDetail);
@@ -26,6 +27,7 @@ function MovieDetail() {
 		imdbRating,
 		Plot,
 		Actors,
+		imdbID,
 	} = movieDetail;
 
 	function handleClick() {
@@ -33,6 +35,19 @@ function MovieDetail() {
 		handleSelected(null);
 		navigate(-1);
 	}
+
+	function handleAddItem() {
+		const newItem = {
+			poster: Poster,
+			title: Title,
+			imdbRating,
+			id: imdbID,
+			runtime: Runtime,
+		};
+		onAddWatch(newItem);
+		navigate("/watched");
+	}
+
 	return (
 		<div className="md:flex  gap-5 text-white ">
 			{/* left */}
@@ -69,7 +84,10 @@ function MovieDetail() {
 				<div className="bg-gray-300 p-5 my-5 rounded-2xl">
 					<StarRating />
 					{rating && (
-						<button className=" bg-purple-600 hover:bg-purple-700  p-3 w-full rounded-2xl font-semibold tracking-wide flex items-center justify-center gap-5 ">
+						<button
+							onClick={handleAddItem}
+							className=" bg-purple-600 hover:bg-purple-700  p-3 w-full rounded-2xl font-semibold tracking-wide flex items-center justify-center gap-5 "
+						>
 							<img src={check} alt="checkIcon" className="h-12 " />
 							<span> Add to list</span>
 						</button>

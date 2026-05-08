@@ -11,9 +11,14 @@ function MovieProvider({ children }) {
 	const [selectedId, setSelectedId] = useState(null);
 	const [isOpen, setIsOpen] = useState(true);
 	const [movieDetail, setMovieDetail] = useState(null);
+	const [watched, setWatched] = useState([]);
 
 	function handleSelected(id) {
 		setSelectedId(id);
+	}
+
+	function onAddWatch(newItem) {
+		setWatched((watched) => [...watched, newItem]);
 	}
 
 	useEffect(() => {
@@ -83,6 +88,8 @@ function MovieProvider({ children }) {
 				setIsOpen,
 				movieDetail,
 				setMovieDetail,
+				onAddWatch,
+				watched,
 			}}
 		>
 			{children}
