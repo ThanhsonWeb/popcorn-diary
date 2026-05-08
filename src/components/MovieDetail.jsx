@@ -2,12 +2,15 @@ import { useMovies } from "../context/MovieContext";
 import Loading from "../ui/Loading";
 import imdb from "../assets/icon/imdb2.svg";
 import arrowleft from "../assets/icon/arrow-left.svg";
+import check from "../assets/icon/circle-full.svg";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
+import { useRating } from "../context/RatingContext";
 
 function MovieDetail() {
 	const navigate = useNavigate();
 	const { movieDetail, setMovieDetail, handleSelected } = useMovies();
+	const { rating } = useRating();
 
 	console.log(movieDetail);
 
@@ -60,7 +63,18 @@ function MovieDetail() {
 			</div>
 			{/* right */}
 			<div className="text-xl p-5">
-				<StarRating />
+				<h3 className="text-2xl hidden md:block ">
+					Rate this movie to add it to .your list
+				</h3>
+				<div className="bg-gray-300 p-5 my-5 rounded-2xl">
+					<StarRating />
+					{rating && (
+						<button className=" bg-purple-600 hover:bg-purple-700  p-3 w-full rounded-2xl font-semibold tracking-wide flex items-center justify-center gap-5 ">
+							<img src={check} alt="checkIcon" className="h-12 " />
+							<span> Add to list</span>
+						</button>
+					)}
+				</div>
 
 				<p className="w-[80%] ">{Plot}</p>
 				<p className="my-5">{Actors}</p>

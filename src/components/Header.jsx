@@ -33,7 +33,7 @@ function Header() {
 					</button>
 				) : (
 					<button
-						className="md:px-6 py-2 px-2   bg-red-900 text-white md:text-2xl font-semibold rounded-lg shadow-md cursor-pointer"
+						className="md:px-6 py-2 px-2    bg-red-900 text-white md:text-2xl text-xl font-semibold rounded-lg shadow-md cursor-pointer whitespace-nowrap"
 						onClick={() => navigate("/signin")}
 					>
 						Sign In
