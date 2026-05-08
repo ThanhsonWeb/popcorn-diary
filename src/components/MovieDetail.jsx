@@ -3,6 +3,7 @@ import Loading from "../ui/Loading";
 import imdb from "../assets/icon/imdb2.svg";
 import arrowleft from "../assets/icon/arrow-left.svg";
 import { useNavigate } from "react-router-dom";
+import StarRating from "./StarRating";
 
 function MovieDetail() {
 	const navigate = useNavigate();
@@ -59,7 +60,7 @@ function MovieDetail() {
 			</div>
 			{/* right */}
 			<div className="text-xl p-5">
-				<h2>Star</h2>
+				<StarRating />
 
 				<p className="w-[80%] ">{Plot}</p>
 				<p className="my-5">{Actors}</p>
