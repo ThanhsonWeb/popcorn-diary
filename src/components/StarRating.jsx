@@ -7,7 +7,7 @@ function StarRating() {
 
 	function handleClick(i) {
 		setRating(i + 1);
-		setTempRating(i + 1);
+		// setTempRating(i + 1);
 	}
 
 	return (
@@ -24,7 +24,7 @@ function StarRating() {
 				))}
 			</div>
 			<span className="md:text-2xl text-3xl ml-5 font-bold text-purple-900">
-				{rating || tempRating}
+				{rating || tempRating || ""}
 			</span>
 		</div>
 	);

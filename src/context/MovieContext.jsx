@@ -21,6 +21,10 @@ function MovieProvider({ children }) {
 		setWatched((watched) => [...watched, newItem]);
 	}
 
+	function onDeleteMovie(id) {
+		setWatched((watched) => watched.filter((movie) => movie.id !== id));
+	}
+
 	useEffect(() => {
 		const controller = new AbortController();
 
@@ -90,6 +94,7 @@ function MovieProvider({ children }) {
 				setMovieDetail,
 				onAddWatch,
 				watched,
+				onDeleteMovie,
 			}}
 		>
 			{children}

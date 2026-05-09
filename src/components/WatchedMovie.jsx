@@ -1,12 +1,13 @@
 import imdb from "../assets/icon/imdb2.svg";
-import starFull from "../assets/icon/star-full.svg";
 import clock from "../assets/icon/clock.svg";
 import close from "../assets/icon/close.svg";
+import { useMovies } from "../context/MovieContext";
 function WatchedMovie({ movie }) {
-	const { poster, title, imdbRating, runtime } = movie;
+	const { poster, title, imdbRating, runtime, userRating, id } = movie;
+	const { onDeleteMovie } = useMovies();
 
 	return (
-		<li className="bg-gray-800 md:p-5 p-2">
+		<li className="bg-gray-700 md:p-5 p-2">
 			<div className="flex items-center  md:gap-5 gap-2">
 				<img src={poster} alt={title} className="h-25  object-cover" />
 				<div className="space-y-3 w-[90%]">
@@ -20,8 +21,8 @@ function WatchedMovie({ movie }) {
 						</div>
 						{/* 2 */}
 						<div className="flex items-center md:gap-3 gap-1">
-              <span className="text-2xl">⭐</span>
-							<span>{imdbRating}</span>
+							<span className="text-2xl">⭐</span>
+							<span>{userRating}</span>
 						</div>
 						{/* 3 */}
 						<div className="flex items-center md:gap-3 gap-1">
@@ -31,8 +32,15 @@ function WatchedMovie({ movie }) {
 					</div>
 					{/* button */}
 				</div>
-				<button className="p-3 rounded-full bg-red-400 cursor-pointer ml-auto">
-					<img src={close} alt="closeIcon" className="md:h-8 h-5  rounded-full" />
+				<button
+					onClick={() => onDeleteMovie(movie.id)}
+					className="p-3 rounded-full bg-red-400 cursor-pointer ml-auto"
+				>
+					<img
+						src={close}
+						alt="closeIcon"
+						className="md:h-8 h-5  rounded-full"
+					/>
 				</button>
 			</div>
 		</li>

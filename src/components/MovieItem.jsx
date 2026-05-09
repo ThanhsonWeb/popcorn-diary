@@ -7,6 +7,7 @@ function MovieItem({ movie }) {
 
 	const { handleSelected } = useMovies();
 
+
 	return (
 		<li className="rounded-2xl bg-gray-900 cursor-pointer mt-5 ">
 			<Link

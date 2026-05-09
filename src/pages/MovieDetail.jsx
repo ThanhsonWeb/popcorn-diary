@@ -9,9 +9,15 @@ import { useRating } from "../context/RatingContext";
 
 function MovieDetail() {
 	const navigate = useNavigate();
-	const { movieDetail, setMovieDetail, handleSelected, onAddWatch } =
-		useMovies();
-	const { rating } = useRating();
+	const {
+		movieDetail,
+		setMovieDetail,
+		handleSelected,
+		onAddWatch,
+		watched,
+		selectedId,
+	} = useMovies();
+	const { rating, setRating } = useRating();
 
 	console.log(movieDetail);
 
@@ -30,6 +36,8 @@ function MovieDetail() {
 		imdbID,
 	} = movieDetail;
 
+	const isWatched = watched.map((movie) => movie.id).includes(selectedId);
+
 	function handleClick() {
 		setMovieDetail(null);
 		handleSelected(null);
@@ -43,6 +51,7 @@ function MovieDetail() {
 			imdbRating,
 			id: imdbID,
 			runtime: Runtime,
+			userRating: rating,
 		};
 		onAddWatch(newItem);
 		navigate("/watched");
@@ -78,19 +87,29 @@ function MovieDetail() {
 			</div>
 			{/* right */}
 			<div className="text-xl p-5">
-				<h3 className="text-2xl hidden md:block ">
-					Rate this movie to add it to .your list
-				</h3>
+				{!isWatched && (
+					<h3 className="text-2xl hidden md:block ">
+						Rate this movie to add it to .your list
+					</h3>
+				)}
 				<div className="bg-gray-300 p-5 my-5 rounded-2xl">
-					<StarRating />
-					{rating && (
-						<button
-							onClick={handleAddItem}
-							className=" bg-purple-600 hover:bg-purple-700  p-3 w-full rounded-2xl font-semibold tracking-wide flex items-center justify-center gap-5 "
-						>
-							<img src={check} alt="checkIcon" className="h-12 " />
-							<span> Add to list</span>
-						</button>
+					{isWatched ? (
+						<h3 className="text-2xl font-semibold text-purple-800 ">
+							You rated this movie {rating}/10 ⭐
+						</h3>
+					) : (
+						<>
+							<StarRating />
+							{rating && (
+								<button
+									onClick={handleAddItem}
+									className=" bg-purple-600 hover:bg-purple-700  p-3 w-full rounded-2xl font-semibold tracking-wide flex items-center justify-center gap-5 "
+								>
+									<img src={check} alt="checkIcon" className="h-12 " />
+									<span> Add to list</span>
+								</button>
+							)}
+						</>
 					)}
 				</div>
 
