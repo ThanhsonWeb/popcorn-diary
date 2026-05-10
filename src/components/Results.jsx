@@ -13,25 +13,36 @@ function Results() {
 			{movieData.length === 0 ? (
 				""
 			) : (
-				<div className="flex items-center  justify-around md:p-4 p-2 lg:w-[87%] w-[95%] mx-auto bg-gray-500 rounded-2xl my-5 ">
-					<h3 className="md:text-3xl text-xl  font-semibold text-white">
-						{!movieDetail ? (
-							`Top ${movieData.length} Results for ${query} 🎉`
-						) : (
-							<div className="flex items-center gap-4  ">
-								<span>Movie Detail</span>
-								<div className="p-2 bg-white rounded-full">
-									<img src={arrowCircle} alt="arrowCircle" className="h-10" />
-								</div>
+				<div className="flex items-center  justify-around md:p-4 p-2 lg:w-[87%] w-[95%] mx-auto bg-gray-600 rounded-2xl my-5 ">
+					{movieDetail ? (
+						<div className="flex items-center gap-4">
+							<h3 className="md:text-3xl text-xl font-semibold text-white">
+								Movie Detail
+							</h3>
+							<div className="p-2 bg-white rounded-full">
+								<img src={arrowCircle} alt="arrowCircle" className="h-10" />
 							</div>
-						)}
-					</h3>
-					<div className="flex items-center " >
+						</div>
+					) : watched.length > 0 ? (
+						<h3 className="md:text-3xl text-xl font-semibold text-white">
+							Top {movieData.length} Results for {query} 🎉
+						</h3>
+					) : (
+						<h3 className="md:text-3xl text-xl font-semibold text-white">
+							Movie You Watched ⬇️
+						</h3>
+					)}
+
+				
+
+					<div className="flex items-center ">
 						<Button variant="secondary" to="/watched">
-							<span className="whitespace-nowrap" >🎬 WATCHED {watched.length}</span>
+							<span className="whitespace-nowrap">
+								🎬 WATCHED {watched.length}
+							</span>
 						</Button>
 					</div>
-					{/* {!movieDetail && (
+					{!movieDetail && (
 						<button
 							onClick={() => setIsOpen(!isOpen)}
 							className="md:h-15 md:w-15 h-10 w-10 flex items-center cursor-pointer bg-purple-700 rounded-full"
@@ -42,7 +53,7 @@ function Results() {
 								className="h-20"
 							/>
 						</button>
-					)} */}
+					)}
 				</div>
 			)}
 		</>

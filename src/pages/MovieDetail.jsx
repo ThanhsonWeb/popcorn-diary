@@ -19,7 +19,7 @@ function MovieDetail() {
 	} = useMovies();
 	const { rating, setRating } = useRating();
 
-	console.log(movieDetail);
+	// console.log(movieDetail);
 
 	if (!movieDetail) return <Loading />;
 

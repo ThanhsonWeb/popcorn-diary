@@ -4,8 +4,8 @@ const RatingContext = createContext();
 //RatingContext → focused only on rating logic (rating, tempRating, handlers).
 
 function RatingProvider({ children }) {
-	const [rating, setRating] = useState(0);
-	const [tempRating, setTempRating] = useState(0);
+	const [rating, setRating] = useState(null);
+	const [tempRating, setTempRating] = useState(null);
 
 	return (
 		<RatingContext.Provider
