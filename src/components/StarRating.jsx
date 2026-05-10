@@ -2,8 +2,8 @@ import { useRating } from "../context/RatingContext";
 import Star from "./Star";
 
 function StarRating() {
-
-	const { rating, setRating, tempRating, setTempRating } = useRating();
+	const { rating, setRating, tempRating, setTempRating } =
+		useRating();
 
 	function handleClick(i) {
 		setRating(i + 1);
@@ -24,7 +24,7 @@ function StarRating() {
 				))}
 			</div>
 			<span className="md:text-2xl text-3xl ml-5 font-bold text-purple-900">
-				{rating || tempRating || ""}
+				{ rating || tempRating || ""}
 			</span>
 		</div>
 	);

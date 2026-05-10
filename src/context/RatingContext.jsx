@@ -9,7 +9,12 @@ function RatingProvider({ children }) {
 
 	return (
 		<RatingContext.Provider
-			value={{ rating, setRating, tempRating, setTempRating }}
+			value={{
+				rating,
+				setRating,
+				tempRating,
+				setTempRating,
+			}}
 		>
 			{children}
 		</RatingContext.Provider>
@@ -18,7 +23,7 @@ function RatingProvider({ children }) {
 
 function useRating() {
 	const context = useContext(RatingContext);
-   if(!context) throw new Error("useRating must be use inside RatingProvider")
+	if (!context) throw new Error("useRating must be use inside RatingProvider");
 	return context;
 }
 

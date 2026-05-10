@@ -1,11 +1,12 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useLocalStorage } from "../useLocalStorage";
+import { useRating } from "./RatingContext";
 
 const MovieContext = createContext();
 
 function MovieProvider({ children }) {
 	const KEY = "783e376b";
-	const [query, setQuery] = useState("");
+	const [query, setQuery] = useState("Pokemon");
 	const [isLoading, setIsLoading] = useState(false);
 	const [movieData, setMovieData] = useState([]);
 	const [username, setUsername] = useState("");
@@ -15,7 +16,10 @@ function MovieProvider({ children }) {
 	// const [watched, setWatched] = useState([]);
 	const [watched, setWatched] = useLocalStorage(["watched", []]);
 
+	const { setRating } = useRating();
+
 	function handleSelected(id) {
+		setRating(null)
 		setMovieDetail(null);
 		setSelectedId(id);
 	}
