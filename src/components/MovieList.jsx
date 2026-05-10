@@ -8,7 +8,7 @@ function MovieList() {
 	if (isLoading) return <Loading />;
 
 	return (
-		<div className=" p-3">
+		<div className=" p-3"  data-aos="zoom-in" >
 			{isOpen && (
 				<ul className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5 ">
 					{movieData.length > 0 ? (

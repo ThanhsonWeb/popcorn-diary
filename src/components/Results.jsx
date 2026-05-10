@@ -13,10 +13,10 @@ function Results() {
 			{movieData.length === 0 ? (
 				""
 			) : (
-				<div className="flex items-center  justify-around md:p-4 p-2 lg:w-[87%] w-[95%] mx-auto bg-gray-600 rounded-2xl my-5 ">
+				<div data-aos="zoom-in" className="flex items-center  justify-around md:p-4 p-2 lg:w-[87%] w-[95%] mx-auto bg-gray-600 rounded-2xl my-5 ">
 					{movieDetail ? (
 						<div className="flex items-center gap-4">
-							<h3 className="md:text-3xl text-xl font-semibold text-white">
+							<h3 data-aos="fade-right" className="md:text-3xl text-xl font-semibold text-white">
 								Movie Detail
 							</h3>
 							<div className="p-2 bg-white rounded-full">

@@ -5,7 +5,7 @@ const MovieContext = createContext();
 
 function MovieProvider({ children }) {
 	const KEY = "783e376b";
-	const [query, setQuery] = useState("pokemon");
+	const [query, setQuery] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 	const [movieData, setMovieData] = useState([]);
 	const [username, setUsername] = useState("");

@@ -15,6 +15,7 @@ function Header() {
 				<Link to="/">
 					<div
 						onClick={() => setMovieDetail(null)}
+						data-aos="fade-right"
 						className="flex items-center gap-3 "
 					>
 						<img src={logo} alt="logo" className="h-20 w-20 rounded-full" />

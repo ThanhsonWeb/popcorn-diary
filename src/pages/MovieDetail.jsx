@@ -65,7 +65,7 @@ function MovieDetail() {
   }
 
   return (
-    <div className="md:flex gap-5 text-white">
+    <div className="md:flex gap-5 text-white" data-aos="fade-right">
       {/* left */}
       <div className="flex flex-row md:flex-col w-full bg-gray-800">
         <button

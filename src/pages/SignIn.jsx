@@ -22,6 +22,7 @@ function SignIn() {
 		>
 			<form
 				onSubmit={handleSubmit}
+				data-aos="zoom-in"
 				style={{ backgroundImage: `url(${bgHero})` }}
 				className="flex flex-col space-y-3 md:w-[70%] w-full bg-amber-50 p-6 rounded-2xl relative "
 			>
