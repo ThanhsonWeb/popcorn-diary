@@ -9,11 +9,11 @@ function WatchedMovie({ movie }) {
 	return (
 		<li className="bg-gray-700 md:p-5 p-2">
 			<div className="flex items-center  md:gap-5 gap-2">
-				<img src={poster} alt={title} className="h-25  object-cover" />
+				<img src={poster} alt={title} className="h-30  object-cover" />
 				<div className="space-y-3 w-[90%]">
-					<h3 className="md:text-2xl text-lg font-semibold">{movie.title}</h3>
+					<h3 className="lg:text-3xl md:text-2xl text-lg font-semibold">{movie.title}</h3>
 					{/* infor */}
-					<div className="flex items-center md:gap-7 gap-2">
+					<div className="flex items-center md:gap-7 gap-2 lg:text-2xl md:text-xl text-lg">
 						{/* 1 */}
 						<div className="flex items-center md:gap-3 gap-1">
 							<img src={imdb} alt="Icon" className="md:h-12 h-6" />

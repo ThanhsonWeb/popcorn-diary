@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useLocalStorage } from "../useLocalStorage";
 
 const MovieContext = createContext();
 
@@ -11,7 +12,8 @@ function MovieProvider({ children }) {
 	const [selectedId, setSelectedId] = useState(null);
 	const [isOpen, setIsOpen] = useState(true);
 	const [movieDetail, setMovieDetail] = useState(null);
-	const [watched, setWatched] = useState([]);
+	// const [watched, setWatched] = useState([]);
+	const [watched, setWatched] = useLocalStorage(["watched", []]);
 
 	function handleSelected(id) {
 		setMovieDetail(null);
