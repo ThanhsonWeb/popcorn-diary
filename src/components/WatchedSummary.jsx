@@ -45,14 +45,14 @@ function WatchedSummary() {
 					<span> {ratingAverage ? ratingAverage.toFixed(1) : ""}</span>
 				</div>
 				{/* 2 */}
-				<div className="flex items-center gap-1 sm:block hidden">
+				<div className="flex items-center gap-1">
 					<span className="lg:text-5xl md:text-3xl text-xl">⭐</span>
 					<span>{userRatingAverage ? userRatingAverage.toFixed(1) : ""}</span>
 				</div>
 				{/* 3 */}
 				<div className="flex items-center gap-1  ">
 					<img src={clock} alt="clockIcon" className="lg:h-20 md:15 h-10" />
-					<span >{Math.round(timeAverage ? timeAverage : "")} min</span>
+					<span className="sm:block hidden" >{Math.round(timeAverage ? timeAverage : "")} min</span>
 				</div>
 			</div>
 		</div>

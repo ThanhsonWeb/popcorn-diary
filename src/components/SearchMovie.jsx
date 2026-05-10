@@ -1,7 +1,14 @@
 import { useMovies } from "../context/MovieContext";
+import { useRef, useEffect } from "react";
 
 function SearchMovie() {
 	const { query, setQuery, movieDetail } = useMovies();
+
+	const inputEl = useRef(null);
+
+	useEffect(() => {
+		inputEl.current.focus();
+	}, []);
 
 	return (
 		<>
@@ -16,6 +23,7 @@ function SearchMovie() {
 							 focus:outline-none focus:ring-2 focus:ring-blue-500 
 							 transition duration-200"
 						placeholder="Search movies..."
+						ref={inputEl}
 					/>
 				</form>
 			)}

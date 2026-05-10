@@ -7,13 +7,16 @@ import { useMovies } from "../context/MovieContext";
 
 function Header() {
 	const navigate = useNavigate();
-	const { username, setUsername } = useMovies();
+	const { username, setUsername, setMovieDetail } = useMovies();
 
 	return (
 		<>
-			<header className="flex  items-center justify-between  p-6 bg-purple-900">
+			<header className=" flex  items-center justify-between  p-6 bg-purple-900">
 				<Link to="/">
-					<div className="flex items-center gap-3 ">
+					<div
+						onClick={() => setMovieDetail(null)}
+						className="flex items-center gap-3 "
+					>
 						<img src={logo} alt="logo" className="h-20 w-20 rounded-full" />
 						<h2 className=" hidden md:block lg:text-4xl text-2xl  font-bold tracking-wide text-yellow-50">
 							PopcornDiary

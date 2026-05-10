@@ -20,20 +20,14 @@ function Results() {
 								Movie Detail
 							</h3>
 							<div className="p-2 bg-white rounded-full">
-								<img src={arrowCircle} alt="arrowCircle" className="h-10" />
+								<img src={arrowCircle} alt="arrowCircle" className="h-7" />
 							</div>
 						</div>
-					) : watched.length > 0 ? (
+					) : (
 						<h3 className="md:text-3xl text-xl font-semibold text-white">
 							Top {movieData.length} Results for {query} 🎉
 						</h3>
-					) : (
-						<h3 className="md:text-3xl text-xl font-semibold text-white">
-							Movie You Watched ⬇️
-						</h3>
-					)}
-
-				
+					) }
 
 					<div className="flex items-center ">
 						<Button variant="secondary" to="/watched">
