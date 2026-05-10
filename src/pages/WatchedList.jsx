@@ -6,7 +6,7 @@ function WatchedList() {
 
 	console.log(watched);
 	return (
-		<div className="text-white p-4 ">
+		<div className="text-white md:p-4 p-1 ">
 			<WatchedSummary />
 
 			<ul className="overflow-scroll">

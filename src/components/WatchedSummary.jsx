@@ -31,7 +31,7 @@ function WatchedSummary() {
 			{/* infor */}
 			<div className="flex items-center gap-7 text-2xl font-semibold md:ml-5   md:text-3xl text-md">
 				{/* 0 */}
-				<div className="flex items-center  gap-5 md:ml-5">
+				<div className="flex items-center  gap-5 md:ml-5 ml-3">
 					<img src={year} alt="Icon" className="lg:h-20 md:15 h-10" />
 					<span>
 						{watched.length > 1
@@ -45,14 +45,14 @@ function WatchedSummary() {
 					<span> {ratingAverage ? ratingAverage.toFixed(1) : ""}</span>
 				</div>
 				{/* 2 */}
-				<div className="flex items-center gap-1 ">
+				<div className="flex items-center gap-1 sm:block hidden">
 					<span className="lg:text-5xl md:text-3xl text-xl">⭐</span>
 					<span>{userRatingAverage ? userRatingAverage.toFixed(1) : ""}</span>
 				</div>
 				{/* 3 */}
-				<div className="flex items-center gap-1 ">
+				<div className="flex items-center gap-1  ">
 					<img src={clock} alt="clockIcon" className="lg:h-20 md:15 h-10" />
-					<span>{Math.round(timeAverage ? timeAverage : "")} min</span>
+					<span >{Math.round(timeAverage ? timeAverage : "")} min</span>
 				</div>
 			</div>
 		</div>

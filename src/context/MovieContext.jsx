@@ -14,6 +14,7 @@ function MovieProvider({ children }) {
 	const [watched, setWatched] = useState([]);
 
 	function handleSelected(id) {
+		setMovieDetail(null);
 		setSelectedId(id);
 	}
 
