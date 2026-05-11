@@ -10,7 +10,7 @@ function Results() {
 
 	return (
 		<>
-			{movieData.length === 0 ? (
+			{movieData?.length === 0 ? (
 				""
 			) : (
 				<div data-aos="zoom-in" className="flex items-center  justify-around md:p-4 p-2 lg:w-[87%] w-[95%] mx-auto bg-gray-600 rounded-2xl my-5 ">
@@ -25,14 +25,14 @@ function Results() {
 						</div>
 					) : (
 						<h3 className="md:text-3xl text-xl font-semibold text-white">
-							Top {movieData.length} Results for {query} 🎉
+							Top {movieData?.length} Results for {query} 🎉
 						</h3>
 					) }
 
 					<div className="flex items-center ">
 						<Button variant="secondary" to="/watched">
 							<span className="whitespace-nowrap">
-								🎬 WATCHED {watched.length}
+								🎬 WATCHED {watched?.length}
 							</span>
 						</Button>
 					</div>

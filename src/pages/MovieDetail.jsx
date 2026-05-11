@@ -43,7 +43,7 @@ function MovieDetail() {
     imdbID,
   } = movieDetail;
 
-  const isWatched = watched.map((movie) => movie.id).includes(selectedId);
+  const isWatched = watched?.map((movie) => movie.id).includes(selectedId);
 
   function handleClick() {
     setMovieDetail(null);

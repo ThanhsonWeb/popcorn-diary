@@ -14,12 +14,13 @@ function MovieProvider({ children }) {
 	const [isOpen, setIsOpen] = useState(true);
 	const [movieDetail, setMovieDetail] = useState(null);
 	// const [watched, setWatched] = useState([]);
-	const [watched, setWatched] = useLocalStorage(["watched", []]);
+	// This passes [] as the fallback and "watched" as the storage key
+	const [watched, setWatched] = useLocalStorage([], "watched");
 
 	const { setRating } = useRating();
 
 	function handleSelected(id) {
-		setRating(null)
+		setRating(null);
 		setMovieDetail(null);
 		setSelectedId(id);
 	}
