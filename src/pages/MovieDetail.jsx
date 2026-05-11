@@ -102,7 +102,7 @@ function MovieDetail() {
         <div className="bg-gray-300 p-5 my-5 rounded-2xl">
           {isWatched ? (
             <h3 className="text-2xl font-semibold text-purple-800">
-              You rated this movie {rating}/10 ⭐
+              You rated this movie {rating} ⭐
             </h3>
           ) : (
             <>
